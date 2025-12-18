@@ -36,7 +36,6 @@
             border-radius: 24px;
         }
 
-        /* 導覽樣式 */
         .nav-link {
             transition: all 0.3s ease;
             padding: 0.5rem 1.2rem;
@@ -50,7 +49,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* 頁面切換 */
         .page-content { display: none; animation: fadeIn 0.6s ease-out forwards; }
         .page-content.active { display: block; }
 
@@ -61,31 +59,21 @@
 
         .research-section { margin-bottom: 4rem; }
         
-        /* 圖片展示盒 */
         .figure-container {
             background: rgba(0,0,0,0.4);
             border: 1px solid rgba(163, 177, 138, 0.2);
             border-radius: 16px;
             overflow: hidden;
             transition: transform 0.3s ease;
-            position: relative;
         }
         .figure-container:hover { transform: translateY(-5px); border-color: var(--forest-accent); }
         
         .research-img {
             width: 100%;
-            height: 300px;
+            height: 280px;
             object-fit: cover;
             background: #2a3d32;
             display: block;
-        }
-        
-        /* 圖片未載入時的佔位樣式 */
-        .research-img:not([src]), .research-img[src=""] {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(45, 90, 39, 0.1);
         }
 
         .img-caption {
@@ -111,7 +99,6 @@
 </head>
 <body class="p-4 md:p-8 flex flex-col items-center">
 
-    <!-- 導覽列 -->
     <nav class="glass-panel px-4 py-2 mb-12 flex space-x-2 sticky top-4 z-50">
         <button onclick="showPage('home')" class="nav-link active" id="btn-home">個人主頁</button>
         <button onclick="showPage('research')" class="nav-link" id="btn-research">研究成果</button>
@@ -132,11 +119,6 @@
                         專注於臺灣原生杜鵑型態學與生態適應研究。<br>
                         致力於透過嚴謹的實驗設計，揭示森林植物在不同海拔環境下的遺傳適應策略。
                     </p>
-                    <div class="flex flex-wrap justify-center gap-4 mt-12">
-                        <span class="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 transition">植物型態學研究</span>
-                        <span class="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 transition">物種發芽試驗</span>
-                        <span class="px-4 py-1 skill-tag border border-forest-accent/30 rounded-full text-xs text-forest-accent">嘉大森林系</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -144,7 +126,6 @@
         <!-- 研究成果分頁 -->
         <section id="research" class="page-content">
             <div class="glass-panel p-8 md:p-16">
-                <!-- 論文標題區 -->
                 <header class="text-center mb-16 border-b border-white/10 pb-12">
                     <h2 class="text-3xl md:text-5xl text-white mb-6 leading-tight">紅毛杜鵑及南澳杜鵑生長之型態比較</h2>
                     <p class="text-xl text-forest-accent italic mb-6">A Comparison of the Growth Forms of <i>Rhododendron rubropilosum</i> and <i>R. nanhuaense</i></p>
@@ -155,83 +136,56 @@
                     </div>
                 </header>
 
-                <!-- 1. 研究照片展示：前言與材料 -->
+                <!-- 研究內容與 4 張照片展示 -->
                 <div class="research-section">
                     <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
-                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 研究背景與材料
+                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 核心研究展示
                     </h3>
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div class="space-y-6">
-                            <p class="leading-relaxed opacity-90 text-lg">
-                                臺灣原生杜鵑具有極高的物種多樣性。本研究針對形態相近但分布海拔不同的 <span class="highlight-text">紅毛杜鵑</span> 與 <span class="highlight-text">南澳杜鵑</span> 進行對比分析，探討其在蒴果毛被與種子性狀上的分化。
-                            </p>
-                            <div class="bg-white/5 p-6 rounded-2xl border-l-4 border-forest-leaf">
-                                <span class="method-tag">實驗室操作</span>
-                                <p class="text-sm opacity-80">
-                                    種子採集自惠蓀林場及合歡山。經 20% 漂白水與 70% 酒精嚴格消毒後，於無菌環境下播種於滅菌泥炭土。
-                                </p>
-                            </div>
-                        </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <!-- 照片 1 -->
                         <div class="figure-container">
-                            <img src="images/field_sampling.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Field+Sampling+Photo+(PNG)'">
-                            <div class="img-caption">圖 1：實驗材料採集與無菌處理流程記錄</div>
+                            <img src="images/螢幕擷取畫面 2025-11-25 222107.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Seed+Comparison+PNG'">
+                            <div class="img-caption">圖 1：種子與蒴果之微型態鑑定對比</div>
                         </div>
+                        <!-- 照片 2 -->
+                        <div class="figure-container">
+                            <img src="images/螢幕擷取畫面 2025-11-25 222043.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Germination+Test+PNG'">
+                            <div class="img-caption">圖 2：標準化環境下之種子發芽試驗</div>
+                        </div>
+                        <!-- 照片 3 -->
+                        <div class="figure-container">
+                            <img src="images/螢幕擷取畫面 2025-11-26 133816.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Growth+Analysis+PNG'">
+                            <div class="img-caption">圖 3：幼苗生長發勢與根莖長度數據統計</div>
+                        </div>
+                        <!-- 照片 4 -->
+                        <div class="figure-container">
+                            <img src="images/螢幕擷取畫面 2025-12-18 235746.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Field+Work+PNG'">
+                            <div class="img-caption">圖 4：惠蓀林場與合歡山野外採種記錄</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <p class="leading-relaxed opacity-90 text-lg mb-4">
+                            本研究透過為期兩個月的實驗室培養，成功量化並證實了 <span class="highlight-text">紅毛杜鵑</span> 與 <span class="highlight-text">南澳杜鵑</span> 在生理性狀上的顯著分化。
+                        </p>
+                        <ul class="space-y-4 text-sm opacity-80">
+                            <li class="flex items-start gap-2">
+                                <span class="text-forest-accent">●</span>
+                                <span><b>生長速度：</b>南澳杜鵑展現更優異的轉化效率，初期生長勢明顯優於紅毛杜鵑。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-forest-accent">●</span>
+                                <span><b>繁殖策略：</b>紅毛杜鵑以高資源投入種子，以適應高海拔貧瘠且寒冷的環境壓力。</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- 2. 顯微鏡下的微觀世界 -->
-                <div class="research-section">
-                    <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
-                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 微形態鑑定 (Micro-morphology)
-                    </h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-                        <div class="figure-container">
-                            <img src="images/seed_microscope.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Seed+Microscopy+(PNG)'">
-                            <div class="img-caption">圖 2：光學顯微鏡下之種子型態對比</div>
-                        </div>
-                        <div class="figure-container">
-                            <img src="images/capsule_hairs.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Capsule+Hairs+(PNG)'">
-                            <div class="img-caption">圖 3：蒴果毛被細部結構差異 (絨毛 vs 稀疏)</div>
-                        </div>
-                    </div>
-                    <p class="mt-6 text-sm opacity-80 text-center italic">
-                        ※ 觀察發現：南澳杜鵑細毛密集呈現絨毛狀，紅毛杜鵑則相對短且稀疏，此為關鍵分類依據。
-                    </p>
-                </div>
-
-                <!-- 3. 生長實驗數據展示 -->
-                <div class="research-section">
-                    <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
-                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 發芽試驗與生長趨勢
-                    </h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="md:col-span-2 figure-container">
-                            <img src="images/growth_chart.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/800x400/1a2f23/a3b18a?text=Growth+Chart+(PNG)'">
-                            <div class="img-caption">圖 4：發芽勢與幼苗生長速率統計圖表 (20℃ 環境)</div>
-                        </div>
-                        <div class="figure-container">
-                            <img src="images/seedling_compare.png" alt="" class="research-img" style="height: 100%; min-height: 250px;" onerror="this.src='https://via.placeholder.com/400x600/1a2f23/a3b18a?text=Seedling+Comparison+(PNG)'">
-                            <div class="img-caption">圖 5：栽培兩個月後之幼苗外觀差異</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 grid md:grid-cols-2 gap-4">
-                        <div class="p-4 bg-emerald-950/30 rounded-xl border border-emerald-900/50">
-                            <h4 class="text-forest-accent font-bold mb-2">● 生長潛能</h4>
-                            <p class="text-sm">南澳杜鵑節間距為紅毛之 <span class="text-white font-bold">2 倍</span>，展現極強的初期競爭優勢。</p>
-                        </div>
-                        <div class="p-4 bg-emerald-950/30 rounded-xl border border-emerald-900/50">
-                            <h4 class="text-forest-accent font-bold mb-2">● 生殖策略</h4>
-                            <p class="text-sm">紅毛杜鵑種子百粒重較高，採取「保守投入」策略以適應高海拔逆境。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. 結語 -->
                 <div class="research-section bg-white/5 p-10 rounded-[32px] border border-white/10 text-center">
-                    <h3 class="text-2xl text-forest-accent mb-6">研究總結</h3>
+                    <h3 class="text-2xl text-forest-accent mb-6">研究結論</h3>
                     <p class="max-w-2xl mx-auto leading-relaxed text-lg opacity-90 font-light">
-                        本研究成功量化了兩物種在遺傳與生態適應上的顯著分化。不僅為臺灣植物分類學提供了實證數據，
-                        更揭示了海拔壓力如何形塑物種不同的生存策略。
+                        此研究結果不僅釐清了兩物種在形態上的細微差異，更揭露了臺灣原生植物在面對海拔變化時的演化與適應機制。
                     </p>
                 </div>
             </div>
@@ -243,16 +197,12 @@
                 <h2 class="text-3xl mb-12 text-white">聯繫研究室</h2>
                 <div class="space-y-10">
                     <div class="flex flex-col items-center">
-                        <span class="text-xs text-forest-accent uppercase tracking-widest mb-2">Primary Email</span>
-                        <p class="text-2xl hover:text-forest-accent transition cursor-pointer">wisdom.minn75@gmail.com</p>
+                        <span class="text-xs text-forest-accent uppercase tracking-widest mb-2">Email</span>
+                        <p class="text-2xl">wisdom.minn75@gmail.com</p>
                     </div>
                     <div class="flex flex-col items-center">
                         <span class="text-xs text-forest-accent uppercase tracking-widest mb-2">Location</span>
-                        <p class="text-lg opacity-80">國立嘉義大學 蘭潭校區<br>森林暨自然資源學系 A04-307 研究室</p>
-                    </div>
-                    <div class="pt-10 flex justify-center gap-10">
-                        <a href="#" class="text-sm border-b border-forest-accent pb-1">GitHub</a>
-                        <a href="#" class="text-sm border-b border-forest-accent pb-1">ResearchGate</a>
+                        <p class="text-lg opacity-80">國立嘉義大學 森林暨自然資源學系</p>
                     </div>
                 </div>
             </div>
@@ -261,26 +211,17 @@
     </main>
 
     <footer class="mt-20 py-12 text-center text-xs opacity-30 tracking-widest uppercase">
-        © 2024 Wisdom Linn | Tree Biology & Ecology Research
+        © 2024 Wisdom Linn | Tree Biology Research
     </footer>
 
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
             document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + pageId).classList.add('active');
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // 微小的背景視差效果
-        document.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) * 0.003;
-            const moveY = (e.clientY - window.innerHeight / 2) * 0.003;
-            document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
-        });
     </script>
 </body>
 </html>
