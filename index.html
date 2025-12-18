@@ -68,17 +68,26 @@
             border-radius: 16px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            position: relative;
         }
         .figure-container:hover { transform: translateY(-5px); border-color: var(--forest-accent); }
         
         .research-img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
             background: #2a3d32;
             display: block;
         }
         
+        /* 圖片未載入時的佔位樣式 */
+        .research-img:not([src]), .research-img[src=""] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(45, 90, 39, 0.1);
+        }
+
         .img-caption {
             padding: 12px;
             font-size: 0.85rem;
@@ -164,8 +173,7 @@
                             </div>
                         </div>
                         <div class="figure-container">
-                            <!-- 請將 src 替換為你的照片路徑，例如 images/material_1.jpg -->
-                            <img src="" alt="實驗材料" class="research-img">
+                            <img src="images/field_sampling.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Field+Sampling+Photo+(PNG)'">
                             <div class="img-caption">圖 1：實驗材料採集與無菌處理流程記錄</div>
                         </div>
                     </div>
@@ -178,11 +186,11 @@
                     </h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                         <div class="figure-container">
-                            <img src="" alt="種子顯微圖" class="research-img">
+                            <img src="images/seed_microscope.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Seed+Microscopy+(PNG)'">
                             <div class="img-caption">圖 2：光學顯微鏡下之種子型態對比</div>
                         </div>
                         <div class="figure-container">
-                            <img src="" alt="蒴果毛被" class="research-img">
+                            <img src="images/capsule_hairs.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/600x400/1a2f23/a3b18a?text=Capsule+Hairs+(PNG)'">
                             <div class="img-caption">圖 3：蒴果毛被細部結構差異 (絨毛 vs 稀疏)</div>
                         </div>
                     </div>
@@ -198,11 +206,11 @@
                     </h3>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="md:col-span-2 figure-container">
-                            <img src="" alt="生長曲線圖" class="research-img">
+                            <img src="images/growth_chart.png" alt="" class="research-img" onerror="this.src='https://via.placeholder.com/800x400/1a2f23/a3b18a?text=Growth+Chart+(PNG)'">
                             <div class="img-caption">圖 4：發芽勢與幼苗生長速率統計圖表 (20℃ 環境)</div>
                         </div>
                         <div class="figure-container">
-                            <img src="" alt="幼苗對比" class="research-img" style="height: 100%; min-height: 250px;">
+                            <img src="images/seedling_compare.png" alt="" class="research-img" style="height: 100%; min-height: 250px;" onerror="this.src='https://via.placeholder.com/400x600/1a2f23/a3b18a?text=Seedling+Comparison+(PNG)'">
                             <div class="img-caption">圖 5：栽培兩個月後之幼苗外觀差異</div>
                         </div>
                     </div>
