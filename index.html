@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究展示 | 林睿森 Wisdom Linn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-deep: #1a2f23;
+            --forest-leaf: #2d5a27;
+            --forest-mist: #f0f4f1;
+            --forest-earth: #4a3728;
+            --forest-accent: #a3b18a;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--forest-deep);
+            background-image: linear-gradient(rgba(26, 47, 35, 0.94), rgba(26, 47, 35, 0.94)), 
+                              url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=2560');
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--forest-mist);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Noto Serif TC', serif; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+
+        /* 導覽樣式 */
+        .nav-link {
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.2rem;
+            border-radius: 99px;
+            font-weight: 500;
+        }
+        .nav-link:hover { background: rgba(255,255,255,0.1); }
+        .nav-link.active {
+            background: var(--forest-leaf);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 頁面切換 */
+        .page-content { display: none; animation: fadeIn 0.6s ease-out forwards; }
+        .page-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .research-section { margin-bottom: 4rem; }
+        
+        /* 圖片展示盒 */
+        .figure-container {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(163, 177, 138, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .figure-container:hover { transform: translateY(-5px); border-color: var(--forest-accent); }
+        
+        .research-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #2a3d32;
+            display: block;
+        }
+        
+        .img-caption {
+            padding: 12px;
+            font-size: 0.85rem;
+            color: var(--forest-accent);
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .highlight-text { color: var(--forest-accent); font-weight: bold; }
+        
+        .method-tag {
+            display: inline-block;
+            background: var(--forest-leaf);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col items-center">
+
+    <!-- 導覽列 -->
+    <nav class="glass-panel px-4 py-2 mb-12 flex space-x-2 sticky top-4 z-50">
+        <button onclick="showPage('home')" class="nav-link active" id="btn-home">個人主頁</button>
+        <button onclick="showPage('research')" class="nav-link" id="btn-research">研究成果</button>
+        <button onclick="showPage('contact')" class="nav-link" id="btn-contact">聯繫方式</button>
+    </nav>
+
+    <main class="w-full max-w-5xl">
+        
+        <!-- 個人主頁 -->
+        <section id="home" class="page-content active">
+            <div class="glass-panel p-12 md:p-20 text-center">
+                <h1 class="text-6xl md:text-7xl mb-6 text-white font-serif tracking-tight">林睿森</h1>
+                <p class="text-2xl text-forest-accent tracking-[0.3em] mb-10 font-light">WISDOM LINN</p>
+                <div class="w-20 h-1 bg-forest-accent mx-auto mb-10"></div>
+                <div class="max-w-3xl mx-auto text-xl leading-relaxed space-y-8 opacity-90">
+                    <p class="text-2xl font-normal">國立嘉義大學 <span class="text-forest-accent underline underline-offset-8">森林暨自然資源學系</span></p>
+                    <p class="font-light">
+                        專注於臺灣原生杜鵑型態學與生態適應研究。<br>
+                        致力於透過嚴謹的實驗設計，揭示森林植物在不同海拔環境下的遺傳適應策略。
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 mt-12">
+                        <span class="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 transition">植物型態學研究</span>
+                        <span class="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 transition">物種發芽試驗</span>
+                        <span class="px-4 py-1 skill-tag border border-forest-accent/30 rounded-full text-xs text-forest-accent">嘉大森林系</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 研究成果分頁 -->
+        <section id="research" class="page-content">
+            <div class="glass-panel p-8 md:p-16">
+                <!-- 論文標題區 -->
+                <header class="text-center mb-16 border-b border-white/10 pb-12">
+                    <h2 class="text-3xl md:text-5xl text-white mb-6 leading-tight">紅毛杜鵑及南澳杜鵑生長之型態比較</h2>
+                    <p class="text-xl text-forest-accent italic mb-6">A Comparison of the Growth Forms of <i>Rhododendron rubropilosum</i> and <i>R. nanhuaense</i></p>
+                    <div class="flex justify-center items-center gap-4 text-sm opacity-70">
+                        <span>林睿森 Wisdom Linn</span>
+                        <span class="w-1 h-1 bg-white rounded-full"></span>
+                        <span>指導教授：林瑞進 博士</span>
+                    </div>
+                </header>
+
+                <!-- 1. 研究照片展示：前言與材料 -->
+                <div class="research-section">
+                    <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
+                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 研究背景與材料
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <div class="space-y-6">
+                            <p class="leading-relaxed opacity-90 text-lg">
+                                臺灣原生杜鵑具有極高的物種多樣性。本研究針對形態相近但分布海拔不同的 <span class="highlight-text">紅毛杜鵑</span> 與 <span class="highlight-text">南澳杜鵑</span> 進行對比分析，探討其在蒴果毛被與種子性狀上的分化。
+                            </p>
+                            <div class="bg-white/5 p-6 rounded-2xl border-l-4 border-forest-leaf">
+                                <span class="method-tag">實驗室操作</span>
+                                <p class="text-sm opacity-80">
+                                    種子採集自惠蓀林場及合歡山。經 20% 漂白水與 70% 酒精嚴格消毒後，於無菌環境下播種於滅菌泥炭土。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="figure-container">
+                            <!-- 請將 src 替換為你的照片路徑，例如 images/material_1.jpg -->
+                            <img src="" alt="實驗材料" class="research-img">
+                            <div class="img-caption">圖 1：實驗材料採集與無菌處理流程記錄</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 顯微鏡下的微觀世界 -->
+                <div class="research-section">
+                    <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
+                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 微形態鑑定 (Micro-morphology)
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <div class="figure-container">
+                            <img src="" alt="種子顯微圖" class="research-img">
+                            <div class="img-caption">圖 2：光學顯微鏡下之種子型態對比</div>
+                        </div>
+                        <div class="figure-container">
+                            <img src="" alt="蒴果毛被" class="research-img">
+                            <div class="img-caption">圖 3：蒴果毛被細部結構差異 (絨毛 vs 稀疏)</div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm opacity-80 text-center italic">
+                        ※ 觀察發現：南澳杜鵑細毛密集呈現絨毛狀，紅毛杜鵑則相對短且稀疏，此為關鍵分類依據。
+                    </p>
+                </div>
+
+                <!-- 3. 生長實驗數據展示 -->
+                <div class="research-section">
+                    <h3 class="text-2xl text-forest-accent mb-8 flex items-center gap-3">
+                        <span class="w-2 h-8 bg-forest-accent rounded-full"></span> 發芽試驗與生長趨勢
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2 figure-container">
+                            <img src="" alt="生長曲線圖" class="research-img">
+                            <div class="img-caption">圖 4：發芽勢與幼苗生長速率統計圖表 (20℃ 環境)</div>
+                        </div>
+                        <div class="figure-container">
+                            <img src="" alt="幼苗對比" class="research-img" style="height: 100%; min-height: 250px;">
+                            <div class="img-caption">圖 5：栽培兩個月後之幼苗外觀差異</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-emerald-950/30 rounded-xl border border-emerald-900/50">
+                            <h4 class="text-forest-accent font-bold mb-2">● 生長潛能</h4>
+                            <p class="text-sm">南澳杜鵑節間距為紅毛之 <span class="text-white font-bold">2 倍</span>，展現極強的初期競爭優勢。</p>
+                        </div>
+                        <div class="p-4 bg-emerald-950/30 rounded-xl border border-emerald-900/50">
+                            <h4 class="text-forest-accent font-bold mb-2">● 生殖策略</h4>
+                            <p class="text-sm">紅毛杜鵑種子百粒重較高，採取「保守投入」策略以適應高海拔逆境。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 結語 -->
+                <div class="research-section bg-white/5 p-10 rounded-[32px] border border-white/10 text-center">
+                    <h3 class="text-2xl text-forest-accent mb-6">研究總結</h3>
+                    <p class="max-w-2xl mx-auto leading-relaxed text-lg opacity-90 font-light">
+                        本研究成功量化了兩物種在遺傳與生態適應上的顯著分化。不僅為臺灣植物分類學提供了實證數據，
+                        更揭示了海拔壓力如何形塑物種不同的生存策略。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 聯繫方式分頁 -->
+        <section id="contact" class="page-content">
+            <div class="glass-panel p-16 max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl mb-12 text-white">聯繫研究室</h2>
+                <div class="space-y-10">
+                    <div class="flex flex-col items-center">
+                        <span class="text-xs text-forest-accent uppercase tracking-widest mb-2">Primary Email</span>
+                        <p class="text-2xl hover:text-forest-accent transition cursor-pointer">wisdom.minn75@gmail.com</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-xs text-forest-accent uppercase tracking-widest mb-2">Location</span>
+                        <p class="text-lg opacity-80">國立嘉義大學 蘭潭校區<br>森林暨自然資源學系 A04-307 研究室</p>
+                    </div>
+                    <div class="pt-10 flex justify-center gap-10">
+                        <a href="#" class="text-sm border-b border-forest-accent pb-1">GitHub</a>
+                        <a href="#" class="text-sm border-b border-forest-accent pb-1">ResearchGate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-12 text-center text-xs opacity-30 tracking-widest uppercase">
+        © 2024 Wisdom Linn | Tree Biology & Ecology Research
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + pageId).classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 微小的背景視差效果
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.003;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.003;
+            document.body.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
+        });
+    </script>
+</body>
+</html>
